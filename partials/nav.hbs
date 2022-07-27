@@ -1,0 +1,219 @@
+<nav
+    id="a-nav"
+    class="fixed top-0 left-0 w-full pointer-events-auto z-[100] bg-black/20 backdrop-blur-sm border-b border-white/50 h-[64px] flex items-center {{#if bgBlack}}nav-bg--black{{/if}}"
+>
+    <div class="container flex justify-between items-center">
+
+        <a href="/" class="text-white">
+            {{#if @site.logo}}
+                <img
+                    src="{{@site.logo}}"
+                    alt="{{@site.title}}"
+                    class="h-11 w-auto invert"
+                />
+            {{else}}
+                {{@site.title}}
+            {{/if}}
+        </a>
+
+        <ul class="list-none m-0 p-0 hidden sm:flex sm:items-center">
+            <li
+                class="text-white text-sm mx-4 inline-block uppercase relative group"
+            >
+
+                <a href="/about-us" class="flex items-center group py-2">
+                    <span>About Us</span>
+                    {{> "icons/plus"}}
+                </a>
+
+                <div
+                    class="h-0 overflow-y-hidden group-hover:h-auto absolute bg-white w-[300px] z-[1000] rounded text-black shadow-md"
+                >
+
+                    <a
+                        href="/about-us"
+                        class="block py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                    >
+                        About Us
+                    </a>
+
+                    <a
+                        href="/team"
+                        class="block py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                    >
+                        Meet the team
+                    </a>
+
+                    <a
+                        href="/mission"
+                        class="block py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                    >
+                        Our Mission
+                    </a>
+
+                    <a
+                        href="/vacancies"
+                        class="block py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                    >
+                        We are hiring
+                    </a>
+
+                </div>
+            </li>
+            <li
+                class="text-white text-sm mx-4 inline-block uppercase relative group"
+            >
+
+                <a href="/portfolio" class="flex items-center group py-2">
+                    <span>Projects</span>
+                    {{> "icons/plus"}}
+                </a>
+
+                <div
+                    class="h-0 overflow-y-hidden group-hover:h-auto absolute bg-white w-[300px] z-[1000] rounded text-black shadow-md"
+                >
+
+                    <a
+                        href="/tag/residential"
+                        class="flex items-center py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                    >
+                        <img
+                            class="p-2 rounded bg-gray-100 h-12 mr-3"
+                            src={{asset "/img/house.png"}}
+                            alt="Residential Architectural Design"
+                        />
+                        <span>Residential</span>
+                    </a>
+
+                    <a
+                        href="/tag/commercial"
+                        class="flex items-center py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                    >
+                        <img
+                            class="p-2 rounded bg-gray-100 h-12 mr-3"
+                            src={{asset "/img/office-building.png"}}
+                            alt="Commercial Architectural Design"
+                        />
+                        <span>Commercial</span>
+                    </a>
+
+                    <a
+                        href="/tag/interior-design"
+                        class="flex items-center py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                    >
+                        <img
+                            class="p-2 rounded bg-gray-100 h-12 mr-3"
+                            src={{asset "/img/id.png"}}
+                            alt="Interior Design"
+                        />
+                        <span>Interior Design</span>
+                    </a>
+
+                    <a
+                        href="/tag/hospitality"
+                        class="flex items-center py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                    >
+                        <img
+                            class="p-2 rounded bg-gray-100 h-12 mr-3"
+                            src={{asset "/img/hotel.png"}}
+                            alt="Hospitality"
+                        />
+                        <span>Hospitality</span>
+                    </a>
+
+                    <a
+                        href="/tag/others"
+                        class="flex items-center py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                    >
+                        <img
+                            class="p-2 rounded bg-gray-100 h-12 mr-3"
+                            src={{asset "/img/other-architecture.png"}}
+                            alt="Other Architectural Design"
+                        />
+                        <span>Others</span>
+                    </a>
+
+                </div>
+            </li>
+            <li
+                class="text-white text-sm mx-4 inline-block uppercase relative group"
+            >
+
+                <a href="/services" class="flex items-center group py-2">
+                    <span>Services</span>
+                    {{> "icons/plus"}}
+                </a>
+
+                <div
+                    class="h-0 overflow-y-hidden group-hover:h-auto absolute bg-white w-[300px] z-[1000] rounded text-black shadow-md"
+                >
+
+                    <a
+                        href="/services/architectural-design"
+                        class="flex items-center py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                    >
+                        <img
+                            class="p-2 rounded bg-gray-100 h-12 mr-3"
+                            src={{asset "/img/ad.png"}}
+                            alt="Architectural Design"
+                        />
+                        <span>Architectural Design</span>
+                    </a>
+
+                    <a
+                        href="/services/interior-design"
+                        class="flex items-center py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                    >
+                        <img
+                            class="p-2 rounded bg-gray-100 h-12 mr-3"
+                            src={{asset "/img/id.png"}}
+                            alt="Interior Design"
+                        />
+                        <span>Interior Design</span>
+                    </a>
+
+                    <a
+                        href="/services/project-management"
+                        class="flex items-center py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                    >
+                        <img
+                            class="p-2 rounded bg-gray-100 h-12 mr-3"
+                            src={{asset "/img/pm.png"}}
+                            alt="Project Management"
+                        />
+                        <span>Project Management</span>
+                    </a>
+
+                    <a
+                        href="/services/consultation"
+                        class="flex items-center py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                    >
+                        <img
+                            class="p-2 rounded bg-gray-100 h-12 mr-3"
+                            src={{asset "/img/consultation.png"}}
+                            alt="Project Management"
+                        />
+                        <span>Consultation</span>
+                    </a>
+
+                </div>
+            </li>
+            <li class="text-white text-sm mx-4 inline-block uppercase">
+
+                <a href="/blog">Blog</a>
+
+            </li>
+        </ul>
+        <button
+            class="hidden md:flex items-center py-1 px-3 border border-white font-sans font-medium uppercase text-white text-sm rounded-sm"
+        >
+            <Phone class="mr-2" />
+            <span>Contact Us</span>
+        </button>
+        <button class="bg-transparent p-0 m-0 border-none sm:hidden ">
+            <div class="gh-burger-box text-white">
+                <div class="gh-burger-inner"></div>
+            </div>
+        </button>
+    </div>
+</nav>

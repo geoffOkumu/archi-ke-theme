@@ -1,0 +1,26 @@
+{{!< default}}
+
+<div class="bg-gradient-to-r from-purple-500 to-pink-500 pb-10 pt-[150px]">
+  <div class="container text-white">
+
+    <header class="text-start bg-black p-4 max-w-[720px]">
+
+      <h1 class="font-serif text-5xl">Our Work</h1>
+
+      <p class="text-lg mt-4">
+        Exprole architecture and Interior design projects that we have been part
+        of.
+      </p>
+
+    </header>
+  </div>
+</div>
+<div class="container my-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+    {{#foreach posts}}
+
+        {{> "card"}} {{!-- partials/card.hbs --}}
+
+    {{/foreach}}
+</div>
+
+{{> "home/book-consultation"}}

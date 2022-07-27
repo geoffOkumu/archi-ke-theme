@@ -1,0 +1,25 @@
+{{!< default}}
+<div class="bg-black pb-10 pt-28">
+    <div class="container text-white">
+        <header class="text-start">
+            <h1 class="font-serif text-6xl">Insights</h1>
+            <p class="text-lg mt-4 text-white/80 max-w-[720px]">
+                Architecture, interior-design and building Insights. Discover the latest innovations, news and achievement in the construction industry.
+            </p>
+        </header>
+    </div>
+</div>
+
+<div class="container my-8">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {{#foreach posts}}
+
+            {{> "card"}}
+
+        {{/foreach}}
+    </div>
+
+</div>
+
+{{> "home/community"}}

@@ -1,0 +1,43 @@
+<section class="my-16">
+	<div class="container flex flex-wrap">
+		<div class="w-full md:w-1/2 mb-8 md:mb-0">
+			<img
+				src={{asset "/img/r-architecture-MAnVoJlQUvg-unsplash.jpg"}}
+				alt="house"
+				class="w-full md:w-[90%]"
+			/>
+		</div>
+		<div class="w-full md:w-1/2">
+			<h3
+				class="flex items-center text-xl mb-4 uppercase relative font-semibold before:content-[' '] before:inline-block before:w-1 before:bg-black before:h-10 before:rotate-12 before:mr-4"
+			>
+				About Us
+			</h3>
+			<p class="text-2xl md:text-3xl font-sans max-w-[960px]">
+				We are a leading architectural firm in Kenya. We are passionate about
+				our work and offer exemplary project solutions that are aesthetically
+				striking and environmentally responsible.
+			</p>
+			<h4
+				class="text-base font-semibold my-6 text-gray-600 uppercase tracking-wider"
+			>
+				Press Mentions & Awards
+			</h4>
+			<div class="grid grid-cols-6 gap-4">
+				<div class="w-full h-20 bg-slate-300"></div>
+				<div class="w-full h-20 bg-slate-300"></div>
+				<div class="w-full h-20 bg-slate-300"></div>
+				<div class="w-full h-20 bg-slate-300"></div>
+				<div class="w-full h-20 bg-slate-300"></div>
+			</div>
+			<button
+				class="py-1 px-3 text-sm uppercase flex items-center border-l-4 border-black group mt-10"
+			>
+				<span class="text-gray-500 group-hover:text-gray-900">
+					More about us
+				</span>
+				{{> "icons/arrow-right" className="ml-2 group-hover:ml-3 color-blue-300 h-4"}}
+			</button>
+		</div>
+	</div>
+</section>

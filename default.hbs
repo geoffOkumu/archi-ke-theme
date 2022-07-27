@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossOrigin
+    />
+    <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Serif:wght@400;500&display=swap"
+    rel="stylesheet"
+    />
+    {{#is "home"}}
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/keen-slider@6.7.0/keen-slider.min.css"
+    />
+    {{/is}}
+
+    <title>{{meta_title}}</title>
+
+    {{ghost_head}}
+    {{!-- Outputs important meta data and settings, should always be in <head> --}}
+
+</head>
+<body class="{{body_class}}">
+<div class="gh-viewport">
+
+<header id="gh-head">
+    {{> "nav" }}
+</header>
+
+<main class="gh-main">
+
+    {{{body}}}
+    {{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
+
+</main>
+
+{{> "footer"}}
+
+</div>
+
+{{!-- <foot> --}}
+
+<script src="{{asset "built/jquery-3.4.1.min.js"}}"></script>
+
+{{#if pagination.pages}}
+<script>
+    var maxPages = parseInt('{{pagination.pages}}');
+</script>
+<script src="{{asset "built/infinitescroll.js"}}"></script>
+{{/if}}
+
+<script>
+    $(document).ready(function () {
+        // Mobile Menu Trigger
+        $('.gh-burger').click(function () {
+            $('body').toggleClass('gh-head-open');
+        });
+    });
+    
+    function changeBgOnScroll() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            document.getElementById("a-nav").classList.add("nav-bg--black");
+        } else {
+            document.getElementById("a-nav").classList.remove("nav-bg--black");
+        }
+    }
+
+    window.onscroll = function() {changeBgOnScroll()};
+</script>
+
+{{#is "home"}}
+<script src="https://cdn.jsdelivr.net/npm/keen-slider@6.7.0/keen-slider.min.js"></script>
+<script>
+    var slider = new KeenSlider("#hero-slider", {
+            loop: true,
+            slides: {
+                perView: 1,
+            },
+            slideChanged(slider) {
+                var sliderNumberEl = document.getElementById("slider-number-el")
+                sliderNumberEl.innerText = (slider.track.details.rel + 1) + '/' + slider.track.details.slidesLength
+            },
+        },
+        [
+          (slider) => {
+            let timeout
+            let mouseOver = false
+            function clearNextTimeout() {
+              clearTimeout(timeout)
+            }
+            function nextTimeout() {
+              clearTimeout(timeout)
+
+              timeout = setTimeout(() => {
+                slider.next()
+              }, 4000)
+            }
+            slider.on("created", () => {
+                var arrowLeft = document.getElementById('slider-arrow-left')
+                arrowLeft.addEventListener("click", () => slider.prev())
+
+                var arrowRight = document.getElementById('slider-arrow-right')
+                arrowRight.addEventListener("click", () => slider.next())
+
+                nextTimeout()
+            })
+            slider.on("dragStarted", clearNextTimeout)
+            slider.on("animationEnded", nextTimeout)
+            slider.on("updated", nextTimeout)
+          },
+        ])
+</script>
+
+{{/is}}
+
+{{#is "post, page"}}
+<script src="{{asset "built/jquery.fitvids.js"}}"></script>
+<script>
+    var images = document.querySelectorAll('.kg-gallery-image img');
+    images.forEach(function (image) {
+        var container = image.closest('.kg-gallery-image');
+        var width = image.attributes.width.value;
+        var height = image.attributes.height.value;
+        var ratio = width / height;
+        container.style.flex = ratio + ' 1 0%';
+    });
+    $(document).ready(function () {
+        var $postContent = $(".gh-content");
+        $postContent.fitVids();
+    });
+</script>
+{{/is}}
+
+{{ghost_foot}}
+{{!-- Outputs important scripts - should always be included before closing body tag --}}
+
+</body>
+</html>

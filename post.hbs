@@ -1,0 +1,92 @@
+{{!< default}}
+
+{{#post}}
+
+<article class="{{post_class}}">
+
+    <header class="relative">
+        {{#if feature_image}}
+        <figure class="w-full h-[500px] object-cover block">
+            <img
+                srcset="{{img_url feature_image size="s"}} 300w,
+                        {{img_url feature_image size="m"}} 600w,
+                        {{img_url feature_image size="l"}} 1000w,
+                        {{img_url feature_image size="xl"}} 2000w"
+                sizes="(max-width: 1000px) 1000px, 2000px"
+                loading="lazy"
+                class="h-full w-full object-cover"
+                src="{{img_url feature_image size="xl"}}"
+                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+            />
+        </figure>
+        {{/if}}
+        <div class="relative -mt-[100px] z-50 post-title-card">
+            <div class="container py-8">
+                <div class="w-full md:max-w-[75%]">
+                    <h1 class="text-2xl md:text-6xl text-white font-sans">{{title}}</h1>
+                    <div class="flex flex-wrap mb-4 mt-6">
+                        {{#foreach tags}}
+                            <a
+                                href="{{url}}"
+                                class="text-[8px] sm:text-[12px] py-1 px-2 mr-1 mb-2 sm:mb-2 inline-block bg-white/20 rounded-sm font-medium tracking-wider uppercase text-white/80"
+                            >
+                                {{name}}
+                            </a>
+                        {{/foreach}}
+                        <time class="text-white/80 text-base ml-4" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+                        <span class="text-white/80 mx-4">{{reading_time}}</span> 
+                    </div>
+                    <div class="flex items-center">
+                        <div class="h-8 w-8 mr-2 rounded-full border border-white flex items-center justify-center">
+                            {{> "icons/user" className="h-4 text-white"}}
+                        </div>
+                        <span class="text-white">{{primary_author.name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="gh-content gh-canvas mt-8">
+        {{content}}
+    </div>
+
+    <footer class="container border-t-4 border-black mt-8 py-8">
+        <h3 class="text-2xl uppercase mb-8">Written by</h3>
+        <div class="grid gap-4 grid-cols-1 md:grid-cols-2">
+            {{#foreach authors}}
+                <a href="{{url}}" class="flex items-center bg-gray-200 rounded p-4 hover:ring-2 ring-black ring-offset-2">
+                    <div class="h-10 w-10 mr-2 rounded-full border border-black flex items-center justify-center">
+                            {{> "icons/user" className="h-5"}}
+                    </div>
+                    <h4 class="text-lg">{{name}}</h4>
+                </a>
+            {{/foreach}}
+        </div>
+
+        {{!--
+        <section class="gh-post-comments">
+            If you want to embed comments, this is a good place to do it!
+        </section>
+        --}}
+
+    </footer>
+
+</article>
+
+<aside class="py-8">
+    <div class="container">
+        <h3 class="text-2xl uppercase">More Articles</h3>
+        <div class="grid gap-4 md:grid-cols-2 mt-4">
+            {{#next_post}}
+                {{> "card"}}
+            {{/next_post}}
+        
+            {{#prev_post}}
+                {{> "card"}}
+            {{/prev_post}}
+        </div>
+    </div>
+</aside>
+
+{{/post}}

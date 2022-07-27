@@ -1,0 +1,48 @@
+{{!--
+Re-usable card for linking to posts
+--}}
+
+<article class="bg-gray-300">
+                <a href="{{url}}">
+                <img
+                    srcset="{{img_url feature_image size="s"}} 300w,
+                        {{img_url feature_image size="m"}} 600w,
+                        {{img_url feature_image size="l"}} 1000w,
+                        {{img_url feature_image size="xl"}} 2000w"
+                        sizes="(max-width: 1000px) 400px, 700px"
+                        src="{{img_url feature_image size="m"}}"
+                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                    class="w-full h-[300px] object-cover border-b-4 border-black"
+                />
+                </a>
+                <div class="p-4">
+                    <div class="flex flex-wrap">
+                        
+                        {{#foreach tags}}
+                            <a
+                                href="{{url}}"
+                                class="text-[8px] sm:text-[12px] py-1 px-2 mr-1 mb-2 sm:mb-2 inline-block bg-black rounded-sm font-medium tracking-wider uppercase text-white/80"
+                            >
+                                {{name}}
+                            </a>
+                        {{/foreach}}
+                        <span class="block text-base text-black/80 ml-3">
+                            {{date format="DD MMMM YYYY"}} - {{reading_time}}
+                        </span>
+                    </div>
+                    <a href="{{url}}">
+                    <h4 class="text-2xl font-sans font-bold text-black my-3">
+                        {{title}}
+                    </h4>
+                    <p class="slate-500">
+                        {{excerpt}}
+                    </p>
+                    <span
+                        class="block mt-6 underline text-slate-700 text-sm font-sans font-medium"
+                    >
+                        Read Article
+                    </span>
+                    </a>
+                </div>
+                
+            </article>

@@ -1,0 +1,25 @@
+<section class="py-8 bg-black border-t border-white/20">
+	<div class="container flex flex-wrap items-center">
+		<img
+			src={{asset "/img/consultation.png"}}
+			alt="consultation"
+			class="invert h-16 mr-8"
+		/>
+		<div>
+			<h4 class="text-3xl font-bold text-white">
+				Book a consultation.
+			</h4>
+			<p class="text-base text-white/80">
+				Do you need advice on your project? Book a consultation with our
+				principal architect.
+			</p>
+		</div>
+		<div class="grow hidden md:block"></div>
+		<button
+			class="border rounded lg:mt-0 mt-4 hover:bg-white hover:text-black border-white text-white py-2 px-5 text-base uppercase font-sans flex items-center"
+		>
+			<span>Book Consultation</span>
+			{{> "icons/arrow-up-right" className="ml-3 h-4 w-auto"}}
+		</button>
+	</div>
+</section>

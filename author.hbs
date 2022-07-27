@@ -1,0 +1,55 @@
+{{!< default}}
+
+{{#author}}
+<header class="bg-gradient-to-r from-purple-500 to-pink-500 pb-10 pt-32 {{#if cover_image}}bg-[url({{cover_image}})]{{/if}}">
+    <div class="container">
+        <div class="p-4 md:p-6 bg-gray-100 max-w-[720px]">
+            <div class="flex items-center flex-wrap">
+                {{#if profile_image}}
+                    <img class="h-16 w-16 object-cover rounded-full mr-6" src="{{profile_image}}" alt="{{name}}" />
+                {{else}}
+                    <div class="h-16 w-16 mr-6 rounded-full border border-black flex items-center justify-center">
+                        {{> "icons/user" className="h-10 text-black"}}
+                    </div>
+                {{/if}}
+                <div class="mt-4 md:mt-0">
+                    <h1 class="font-serif text-4xl mb-2">{{name}}</h1>
+                    <p class="text-black/80 text-lg">Posts by {{name}}</p>
+                </div>
+            </div>
+             {{#if bio}}
+                <p class="text-black/80 text-lg block mt-4">{{bio}}</p>           
+            {{/if}}
+            <div class="mt-4">
+                <div class="flex flex-wrap">
+                    {{#if website}}
+                        <a href="{{website}}" target="_blank" rel="noopener">
+                            {{> "icons/globe" className="h-6 mr-4 hover:text-slate-600"}}
+                        </a>
+                    {{/if}}
+                    {{#if twitter}}
+                        <a href="{{twitter_url}}" target="_blank" rel="noopener">
+                            {{> "icons/twitter" className="h-6 mr-4 hover:fill-slate-600"}}
+                        </a>
+                    {{/if}}
+                    {{#if facebook}}
+                        <a href="{{facebook_url}}" target="_blank" rel="noopener">
+                            {{> "icons/facebook" className="h-6 hover:text-slate-600"}}
+                        </a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{{/author}}
+
+<div class="container my-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+    {{#foreach posts}}
+
+        {{> "card"}} {{!-- partials/card.hbs --}}
+
+    {{/foreach}}
+</div>
+
+{{> "home/community"}}
