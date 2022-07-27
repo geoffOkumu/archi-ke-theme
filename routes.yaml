@@ -1,5 +1,17 @@
 routes:
   /: home
+  /services/architectural-design/:
+    template: page
+    data: page.architectural-design
+  /services/interior-design/:
+    template: page
+    data: page.interior-design
+  /services/project-management/:
+    template: page
+    data: page.project-management
+  /services/consultation/:
+    template: page
+    data: page.consultation
 
 taxonomies:
   tag: /tag/{slug}/

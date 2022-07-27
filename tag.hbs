@@ -1,6 +1,9 @@
 {{!< default}}
 
-<div class="bg-gradient-to-r from-purple-500 to-pink-500 pb-10 pt-[150px] {{#if feature_image}}bg-[url({{feature_image}})]{{/if}}">
+<div class="bg-gradient-to-r from-purple-500 to-pink-500 pb-10 pt-[150px] bg-cover" 
+    {{#if feature_image}}
+        style="background-image: url({{feature_image}});"
+    {{/if}}>
     <div class="container text-white">
 
         {{#tag}}

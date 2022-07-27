@@ -1,28 +1,28 @@
 {{!< default}}
 
-{{#post}}
-<article class="gh-article {{post_class}}">
+{{#page}}
+  <article class="{{post_class}}">
 
-    <header class="gh-header gh-canvas">
-        <h1 class="gh-title">{{title}}</h1>
+    <header
+      class="bg-black pb-10 pt-[150px] bg-cover"
+    >
+      <div class="container text-white">
+        <h1 class="font-sans font-bold text-8xl text-white max-w-[720px] mb-4">{{title}}</h1>
 
         {{#if custom_excerpt}}
-            <p class="gh-excerpt">{{custom_excerpt}}</p>
+          <p class="text-lg md:text-2xl text-white max-w-[960px] font-sans mb-8">{{custom_excerpt}}</p>
         {{/if}}
-
-        {{#if feature_image}}
-            <figure class="gh-feature-image">
-                <img src="{{feature_image}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
-                {{#if feature_image_caption}}
-                    <figcaption>{{feature_image_caption}}</figcaption>
-                {{/if}}
-            </figure>
+      </div>
+      {{#if feature_image}}
+            <img src="{{feature_image}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" class="w-full md:w-[80%]">
         {{/if}}
     </header>
 
-    <div class="gh-content gh-canvas">
-        {{content}}
+    <div class="my-10 gh-content gh-canvas">
+      {{content}}
     </div>
 
-</article>
-{{/post}}
+  </article>
+  {{> "home/book-consultation"}}
+  <hr class="w-full border-t border-white/10 bg-black" />
+{{/page}}
