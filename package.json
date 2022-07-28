@@ -2,7 +2,7 @@
     "name": "archi-ke-theme",
     "description": "A custom theme for ghost",
     "demo": "https://starter.ghost.io",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "engines": {
         "ghost": ">=4.0.0"
     },

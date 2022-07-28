@@ -4,13 +4,13 @@
   <article class="{{post_class}}">
 
     <header
-      class="bg-black pb-10 pt-[150px] bg-cover"
+      class="bg-black pt-[150px] bg-cover"
     >
       <div class="container text-white">
-        <h1 class="font-sans font-bold text-8xl text-white max-w-[720px] mb-4">{{title}}</h1>
+        <h1 class="font-sans font-bold text-4xl md:text-8xl text-white max-w-[720px] block pb-6">{{title}}</h1>
 
         {{#if custom_excerpt}}
-          <p class="text-lg md:text-2xl text-white max-w-[960px] font-sans mb-8">{{custom_excerpt}}</p>
+          <p class="text-lg md:text-2xl text-white max-w-[960px] font-sans block pb-8">{{custom_excerpt}}</p>
         {{/if}}
       </div>
       {{#if feature_image}}
