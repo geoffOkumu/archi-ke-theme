@@ -4,25 +4,15 @@
 
 <article class="{{post_class}}">
 
-    <header class="relative">
-        {{#if feature_image}}
-        <figure class="w-full h-[500px] object-cover block">
-            <img
-                srcset="{{img_url feature_image size="s"}} 300w,
-                        {{img_url feature_image size="m"}} 600w,
-                        {{img_url feature_image size="l"}} 1000w,
-                        {{img_url feature_image size="xl"}} 2000w"
-                sizes="(max-width: 1000px) 1000px, 2000px"
-                loading="lazy"
-                class="h-full w-full object-cover"
-                src="{{img_url feature_image size="xl"}}"
-                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-            />
-        </figure>
-        {{/if}}
-        <div class="relative -mt-[100px] z-50 post-title-card">
+    <header class="bg-black pt-[120px]">
+        <div class="post-title-card">
             <div class="container py-8">
                 <div class="w-full md:max-w-[75%]">
+                    <span
+                        class="flex items-center text-sm mb-4 uppercase relative before:content-[' '] before:inline-block before:w-[1px] before:bg-white text-white/80 before:h-6 before:rotate-12 before:mr-4"
+                    >
+                        Videos
+                    </span>
                     <h1 class="text-2xl md:text-6xl text-white font-sans font-bold">{{title}}</h1>
                     <div class="flex flex-wrap mb-4 mt-6">
                         {{#foreach tags}}
@@ -45,14 +35,15 @@
                 </div>
             </div>
         </div>
+        
     </header>
 
-    <div class="gh-content gh-canvas mt-8">
+    <div class="gh-content gh-canvas py-8 bg-black text-white">
         {{content}}
     </div>
 
-    <footer class="container border-t-4 border-black mt-8 py-8">
-        <h3 class="text-2xl uppercase mb-8">Written by</h3>
+    <footer class="container mt-8">
+        <h3 class="text-2xl uppercase mb-8">Posted by</h3>
         <div class="grid gap-4 grid-cols-1 md:grid-cols-2">
             {{#foreach authors}}
                 <a href="{{url}}" class="flex items-center bg-gray-200 rounded p-4 hover:ring-2 ring-black ring-offset-2">
@@ -76,17 +67,33 @@
 
 <aside class="py-8">
     <div class="container">
-        <h3 class="text-2xl uppercase">More Articles</h3>
+        <h3 class="text-2xl uppercase">More Videos</h3>
         <div class="grid gap-4 md:grid-cols-2 mt-4">
-            {{#next_post}}
-                {{> "card"}}
-            {{/next_post}}
-        
-            {{#prev_post}}
-                {{> "card"}}
-            {{/prev_post}}
+            {{#get "posts" limit="4" filter="tag:hash-video" include="tags"}}
+              {{#foreach posts}}
+                <a href="{{url}}" class="block relative rounded group">
+                  <img
+                    src="{{img_url  feature_image}}"
+                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                    class="h-[240px] md:h-[300px] w-full object-cover block rounded"
+                  />
+                  
+                  <div class="absolute bg-black/20 top-0 left-0 w-full h-full flex flex-col rounded">
+                    <div class="grow flex items-center justify-center">
+                      {{> "icons/play" className="fill-white z-50 group-hover:scale-110"}}
+                    </div>
+                    <div class="text-white p-4 bg-black rounded-b">
+                      <h3 class="text-base font-bold">{{title}}</h3>
+                    </div>
+                  </div>
+                </a>
+              {{/foreach}}
+            {{/get}}
         </div>
     </div>
 </aside>
 
 {{/post}}
+<script>
+  document.querySelector(".kg-embed-card").classList.add('kg-width-wide')
+</script>

@@ -7,39 +7,43 @@
 			{{#get "posts" limit="6" filter="tag:project" include="tags"}}
         {{#foreach posts}}
           <div class="bg-gray-300">
-            <div class="overflow-hidden w-full h-[100px] sm:h-[200px]">
-              <img
-                src="{{img_url  feature_image}}"
-                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                class="w-full h-full max-w-full hover:scale-[1.1] duration-[3s] object-cover"
-              />
-            </div>
-            <div class="p-2 sm:p-4 text-black border-t-4 border-black">
-              
-                {{#foreach tags}}
-                  <span
-                    class="text-[8px] sm:text-[12px] py-1 px-2 mr-1 mb-1 sm:mb-2 inline-block bg-black rounded-sm font-medium tracking-wider uppercase text-white/80"
-                  >
-                    {{name}}
-                  </span>
-                {{/foreach}}
-              
-              <h3 class="font-sans text-base sm:text-xl mt-3">
-                {{title}}
-              </h3>
-            </div>
+            <a href="{{url}}">
+              <div class="overflow-hidden w-full h-[100px] sm:h-[200px]">
+                <img
+                  src="{{img_url  feature_image}}"
+                  alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                  class="w-full h-full max-w-full hover:scale-[1.1] duration-[3s] object-cover"
+                />
+              </div>
+              <div class="p-2 sm:p-4 text-black border-t-4 border-black">
+                
+                  {{#foreach tags}}
+                    <span
+                      class="text-[8px] sm:text-[12px] py-1 px-2 mr-1 mb-1 sm:mb-2 inline-block bg-black rounded-sm font-medium tracking-wider uppercase text-white/80"
+                    >
+                      {{name}}
+                    </span>
+                  {{/foreach}}
+                
+                <h3 class="font-sans text-base sm:text-xl mt-3">
+                  {{title}}
+                </h3>
+              </div>
+            </a>
           </div>
         {{/foreach}}
 			{{/get}}
 		</div>
 
 		<div class="mt-4">
-			<button
-				class="border rounded border-black hover:bg-black hover:text-white hover:underline py-2 px-5 text-base uppercase font-sans flex items-center"
-			>
-				<span>View All Projects</span>
-				<ArrowUpRight class="ml-3 h-4 w-auto" />
-			</button>
+      <a href="/tag/residential">
+        <button
+          class="border rounded border-black hover:bg-black hover:text-white hover:underline py-2 px-5 text-base uppercase font-sans flex items-center"
+        >
+          <span>View All Projects</span>
+          <ArrowUpRight class="ml-3 h-4 w-auto" />
+        </button>
+      </a>
 		</div>
 	</div>
 </section>

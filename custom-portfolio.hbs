@@ -4,25 +4,15 @@
 
 <article class="{{post_class}}">
 
-    <header class="relative">
-        {{#if feature_image}}
-        <figure class="w-full h-[500px] object-cover block">
-            <img
-                srcset="{{img_url feature_image size="s"}} 300w,
-                        {{img_url feature_image size="m"}} 600w,
-                        {{img_url feature_image size="l"}} 1000w,
-                        {{img_url feature_image size="xl"}} 2000w"
-                sizes="(max-width: 1000px) 1000px, 2000px"
-                loading="lazy"
-                class="h-full w-full object-cover"
-                src="{{img_url feature_image size="xl"}}"
-                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-            />
-        </figure>
-        {{/if}}
-        <div class="relative -mt-[100px] z-50 post-title-card">
+    <header class="bg-black pt-[120px]">
+        <div class="post-title-card">
             <div class="container py-8">
                 <div class="w-full md:max-w-[75%]">
+                    <span
+                        class="flex items-center text-sm mb-4 uppercase relative before:content-[' '] before:inline-block before:w-[1px] before:bg-white text-white/80 before:h-6 before:rotate-12 before:mr-4"
+                    >
+                        Projects
+                    </span>
                     <h1 class="text-2xl md:text-6xl text-white font-sans font-bold">{{title}}</h1>
                     <div class="flex flex-wrap mb-4 mt-6">
                         {{#foreach tags}}
@@ -45,6 +35,21 @@
                 </div>
             </div>
         </div>
+        {{#if feature_image}}
+        <figure class="w-full h-auto object-cover block">
+            <img
+                srcset="{{img_url feature_image size="s"}} 300w,
+                        {{img_url feature_image size="m"}} 600w,
+                        {{img_url feature_image size="l"}} 1000w,
+                        {{img_url feature_image size="xl"}} 2000w"
+                sizes="(max-width: 1000px) 1000px, 2000px"
+                loading="lazy"
+                class="h-full w-full object-cover"
+                src="{{img_url feature_image size="xl"}}"
+                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+            />
+        </figure>
+        {{/if}}
     </header>
 
     <div class="gh-content gh-canvas mt-8">
@@ -52,7 +57,7 @@
     </div>
 
     <footer class="container border-t-4 border-black mt-8 py-8">
-        <h3 class="text-2xl uppercase mb-8">Written by</h3>
+        <h3 class="text-2xl uppercase mb-8">Posted by</h3>
         <div class="grid gap-4 grid-cols-1 md:grid-cols-2">
             {{#foreach authors}}
                 <a href="{{url}}" class="flex items-center bg-gray-200 rounded p-4 hover:ring-2 ring-black ring-offset-2">
