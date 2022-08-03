@@ -1,0 +1,46 @@
+{{!--
+Re-usable card for linking to projects
+--}}
+
+<article class="flex justify-between items-center flex-wrap py-8 border-b-2 md:border-none md:odd:flex-row-reverse">
+  <div class="p-4 w-full md:w-[40%]">
+      <a href="{{url}}">
+        <h4 class="text-4xl max-w-[400px] font-serif font-bold text-black my-3">
+            {{title}}
+        </h4>
+      </a>
+      <div class="flex flex-wrap my-6">
+          
+          {{#foreach tags}}
+              <a
+                  href="{{url}}"
+                  class="text-[8px] sm:text-[12px] py-1 px-2 mr-1 mb-2 sm:mb-2 inline-block bg-black rounded-sm font-medium tracking-wider uppercase text-white/80"
+              >
+                  {{name}}
+              </a>
+          {{/foreach}}
+      </div>
+      
+      <a href="{{url}}" class="flex mt-6 px-6 py-4 border-2 border-black w-[280px] justify-between items-center">
+        <span
+            class="block underline text-slate-700 text-sm font-sans font-medium"
+        >
+            View Project
+        </span>
+        {{> "icons/arrow-up-right"}}
+      </a>
+  </div>
+  <a href="{{url}}" class="w-full md:w-[55%]">
+    <img
+        srcset="{{img_url feature_image size="s"}} 300w,
+            {{img_url feature_image size="m"}} 600w,
+            {{img_url feature_image size="l"}} 1000w,
+            {{img_url feature_image size="xl"}} 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            src="{{img_url feature_image size="m"}}"
+        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+        class="w-full h-auto object-cover rounded-md"
+    />
+  </a>
+  
+</article>

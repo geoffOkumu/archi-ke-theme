@@ -1,17 +1,17 @@
 {{!< default}}
 
-<div class="bg-gradient-to-r from-purple-500 to-pink-500 pb-10 pt-[150px] bg-cover" 
+<div class="bg-gradient-to-r from-blue-800 to-pink-500 pb-10 pt-[150px] bg-cover" 
     {{#if feature_image}}
         style="background-image: url({{feature_image}});"
     {{/if}}>
     <div class="container text-white">
 
         {{#tag}}
-        <header class="text-start bg-black p-4 max-w-[720px]">
+        <header class="text-start max-w-[720px]">
 
-            <h1 class="font-serif text-5xl"># {{name}}</h1>
+            <h1 class="font-serif text-5xl md:text-6xl font-bold">{{name}}</h1>
 
-            <p class="text-lg mt-4">
+            <p class="text-lg mt-4 max-w-[500px]">
                 {{#if description}}
                     {{description}}
                 {{else}}
@@ -23,10 +23,10 @@
         {{/tag}}
     </div>
 </div>
-<div class="container my-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+<div class="container my-5">
     {{#foreach posts}}
 
-        {{> "card"}} {{!-- partials/card.hbs --}}
+        {{> "project-card"}} {{!-- partials/card.hbs --}}
 
     {{/foreach}}
 </div>

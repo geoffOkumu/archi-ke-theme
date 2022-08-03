@@ -16,7 +16,7 @@ production stylesheet in assets/built/screen.css using: gulp dev
 
 /* Nav */
 .nav-bg--black {
-    background-color: #000000 !important;
+    background-color: #0a0a0a !important;
 }
 
 /* Mobile Menu */

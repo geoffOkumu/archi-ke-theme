@@ -4,14 +4,14 @@
 <article class="{{post_class}}">
   <header class="pt-40 bg-black pb-24 text-white">
     <div class="container">
-      <h1 class="text-4xl md:text-8xl font-serif font-medium text-center">{{title}}</h1>
+      <h1 class="text-5xl md:text-8xl font-serif font-bold text-center">{{title}}</h1>
       {{#if custom_excerpt}}
-          <p class="mx-auto text-lg md:text-2xl mt-6 max-w-[960px] text-center">{{custom_excerpt}}</p>
+          <p class="mx-auto text-xl md:text-3xl mt-6 max-w-[960px] text-center">{{custom_excerpt}}</p>
       {{/if}}
 
       <div class="grid grid-cols-5 gap-8 pt-10">
-        <img src="https://res-1.cloudinary.com/chat-cart/image/upload/q_auto/v1/ghost-blog-images/V5_Photo-1.jpg" alt="house" class="col-span-5 md:col-span-2 object-cover h-[300px] md:h-[500px] w-full relative block after:z-10 after:absolute after:w-20 after:h-20 after:bg-black after:top-0 after:left-0" >
-        <img src="https://res-5.cloudinary.com/chat-cart/image/upload/q_auto/v1/ghost-blog-images/Garden-Estate-01.jpg" alt="house" class="col-span-5 md:col-span-3 object-cover h-[300px] md:h-[500px] w-full" >
+        <img src="https://res-1.cloudinary.com/chat-cart/image/upload/q_auto/v1/ghost-blog-images/V5_Photo-1.jpg" alt="house" class="col-span-5 md:col-span-2 object-cover h-[300px] md:h-[500px] w-full rounded-md relative hidden md:block after:z-10 after:absolute after:w-20 after:h-20 after:bg-black after:top-0 after:left-0" >
+        <img src="https://res-5.cloudinary.com/chat-cart/image/upload/q_auto/v1/ghost-blog-images/Garden-Estate-01.jpg" alt="house" class="col-span-5 md:col-span-3 object-cover h-[300px] md:h-[500px] w-full rounded-md" >
       </div>
       <div class="pt-12">
         <div class="border-t border-gray-300 h-4 w-full border-l mb-8"></div>
@@ -48,7 +48,7 @@
   </section>
   <section class="py-10" id="mission">
     <div class="container grid md:grid-cols-2 gap-8">
-      <div class="bg-yellow-400 p-6">
+      <div class="bg-yellow-400 p-6 rounded-lg">
         <h3 class="text-xl text-black mb-12 font-serif">Our Mission</h3>
         <img src={{asset "img/mission.png"}} alt="architecture" class="inverse w-[160px] my-16">
         <p class="text-xl text-black mb-3">
@@ -58,7 +58,7 @@
           Our tradition of dedication, professionalism and outstanding customer service is a testament to that mission as we strive each day for excellence in bringing our valued clients’ ideas to life.
         </p>
       </div>
-      <div class="bg-green-400 p-6">
+      <div class="bg-green-400 p-6 rounded-lg">
         <h3 class="text-xl text-black mb-12 font-serif">Our Vision</h3>
         <img src={{asset "img/target.png"}} alt="architecture" class="inverse h-[160px] my-16">
         <p class="text-xl text-black mb-3">
@@ -67,6 +67,23 @@
         <p class="text-xl text-black">
           To be viewed as a respected architectural firm, providing high quality design and services to our clients with honesty and integrity.
         </p>
+      </div>
+    </div>
+  </section>
+  <section class="container mb-10">
+    <div class="w-full relative">
+      <img 
+        class="w-full h-auto rounded-lg" 
+        src="https://res.cloudinary.com/chat-cart/image/upload/v1658970948/ghost-blog-images/V5_Photo-1_o.jpg" 
+        alt="residential house architecture"
+      >
+      <div class="absolute top-0 bottom-0 left-0 right-0 bg-black/30 rounded-lg flex items-center justify-center">
+        <div class="items-center">
+          <h2 class="font-sans font-bold max-w-[720px] text-6xl text-center mx-auto text-white">Have a project in mind? Book a consultation</h2>
+          <a href="/contact-us" class="flex w-full justify-center mt-4">
+            <button class="py-4 px-8 bg-white rounded-full hover:border-2 border-blue-500">Book Consultation</button>
+          </a>
+        </div>
       </div>
     </div>
   </section>

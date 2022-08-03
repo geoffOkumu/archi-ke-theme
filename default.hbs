@@ -6,16 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossOrigin
-    />
-    <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Serif:wght@400;500&display=swap"
-    rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
     {{#is "home"}}
     <link
       rel="stylesheet"
@@ -119,6 +112,34 @@
             slider.on("updated", nextTimeout)
           },
         ])
+
+    var videoSlider = new KeenSlider("#video-slider", {
+        loop: true,
+        detailsChanged: (s) => {
+          const slides = s.track.details.slides
+          s.slides.forEach((element, idx) => {
+            scaleElement(element.querySelector("div"), slides[idx].portion)
+          })
+        },
+      }, [
+        (slider) =>{
+            slider.on("created", () => {
+                var vArrowLeft = document.getElementById('video-slider-arrow-left')
+                vArrowLeft.addEventListener("click", () => slider.prev())
+
+                var vArrowRight = document.getElementById('video-slider-arrow-right')
+                vArrowRight.addEventListener("click", () => slider.next())
+            })
+        }
+      ])
+
+      function scaleElement(element, portion) {
+        var scale_size = 0.7
+        var scale = 1 - (scale_size - scale_size * portion)
+        var style = `scale(${scale})`
+        element.style.transform = style
+        element.style["-webkit-transform"] = style
+      }
 
     
 </script>
