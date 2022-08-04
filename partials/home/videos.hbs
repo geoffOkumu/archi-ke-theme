@@ -1,65 +1,54 @@
-<section class="my-16 relative">
-      <div class="md:absolute left-0 top-[10%] md:h-auto w-full z-10 md:bg-blackgradient pointer-events-none">
-        <div class="container h-full">
-          <div class="relative w-full md:w-[40%] mb-[-100px] md:mb-0 z-[100] bg-black rounded-lg px-4 md:px-8 py-8 text-white flex flex-col h-full pointer-events-auto">
-            <h3 class="text-3xl font-sans font-medium mt-8 mb-2">
-              Videos
-            </h3>
-            <p class="text-lg text-white/80 mb-2 max-w-[450px]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit netus
-              praesent eu orci, volutpat.
-            </p>
-            <div class="mb-12">
-              <a href="https://www.youtube.com/channel/UClilombrhYmyD9mpqQI9okQ" target="_blank" rel="noopener noreferrer">
-                <button class="border rounded mt-4 hover:bg-white hover:text-black border-white text-white py-2 px-5 text-base uppercase font-sans flex items-center">
-                  <span>More Videos</span>
-                  <ArrowRight class="ml-3 h-4 w-auto" />
-                </button>
-              </a>
-            </div>
-            <div class="w-full flex items-center justify-between">
-              <button
-                class="bg-transparent border-none hover:text-blue-600 p-2 rounded hover:bg-white/20"
-                id="video-slider-arrow-left"
+<section class="my-16">
+  <div class="container">
+    <h2
+      class="flex items-center text-xl mb-4 uppercase relative font-semibold before:content-[' '] before:inline-block before:w-1 before:bg-black before:h-10 before:rotate-12 before:mr-4"
+    >
+      Videos
+    </h2>
+    <p class="text-2xl text-black/80 font-sans mb-8">
+      High quality videos of our projects.
+    </p>
+    <div class="w-full">
+      <div class="keen-slider h-[300px] md:h-[450px] w-full mb-4" id="video-slider">
+        {{#get "posts" limit="8" filter="tag:hash-video" include="tags"}}
+          {{#foreach posts}}
+              <div
+                class="w-full h-full overflow-hidden rounded-lg relative keen-slider__slide number-slide{{@number}}"
               >
-                {{> "icons/arrow-left" className="text-white h-4" }}
-              </button>
-              <span class="text-center" id="video-slider-number-el">
-              </span>
-                <button
-                  class="bg-transparent border-none hover:text-blue-600 p-2 rounded hover:bg-white/20"
-                  id="video-slider-arrow-right"
-                >
-                  {{> "icons/arrow-right" className="text-white h-4" }}
-                </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-      <div class="w-full h-[400px] md:h-[550px] md:w-[70%] md:ml-[30%]">
-        <div class="keen-slider h-full w-full" id="video-slider">
-          {{#get "posts" limit="6" filter="tag:hash-video" include="tags"}}
-            {{#foreach posts}}
-                <div
-                  class="w-full h-full overflow-hidden rounded-lg relative keen-slider__slide number-slide{{@number}}"
-                >
-                  <img
-                    src="{{img_url  feature_image}}"
-                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                    class="h-full w-full object-cover rounded-lg"
-                  />
-                  <div class="absolute w-full h-full top-0 left-0 flex items-center justify-center">
-                    <a href="{{url}}">
-                      <button class="h-28 w-28 rounded-full active:bg-gray-300 hover:ring bg-white flex items-center justify-center cursor-pointer">
-                        {{> "icons/play" className="h-16 w-auto"}}
-                      </button>
-                    </a>
-                  </div>
+                <img
+                  src="{{img_url  feature_image}}"
+                  alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                  class="h-full w-full object-cover rounded-lg"
+                />
+                <div class="absolute w-full h-full top-0 left-0 flex items-center justify-center">
+                  <a href="{{url}}">
+                    <button class="h-28 w-28 rounded-full active:bg-gray-300 hover:ring bg-white flex items-center justify-center cursor-pointer">
+                      {{> "icons/play" className="h-16 w-auto"}}
+                    </button>
+                  </a>
                 </div>
-              {{/foreach}}
-          {{/get}}
-        </div>
+              </div>
+            {{/foreach}}
+        {{/get}}
       </div>
+      <div class="keen-slider h-full w-full" id="video-slider-thumbnails">
+        {{#get "posts" limit="8" filter="tag:hash-video" include="tags"}}
+          {{#foreach posts}}
+              <div
+                class="w-full h-[100px] md:h-[120px] cursor-pointer overflow-hidden rounded-lg relative keen-slider__slide number-slide{{@number}}"
+              >
+                <img
+                  src="{{img_url  feature_image}}"
+                  alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                  class="h-full w-full object-cover rounded-lg"
+                />
+                <div class="absolute w-full h-full top-0 left-0 flex items-end p-2 md:p-4 bg-black/30 pointer-events-none">
+                  <h3 class="text-white text-sm sm:text-base md:text-lg">{{title}}</h3>
+                </div>
+              </div>
+            {{/foreach}}
+        {{/get}}
       </div>
-    </section>
+    </div>
+  </div>
+</section>

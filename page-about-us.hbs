@@ -1,94 +1,133 @@
 {{!< default}}
 
 {{#page}}
-<article class="{{post_class}}">
-  <header class="pt-40 bg-black pb-24 text-white">
-    <div class="container">
-      <h1 class="text-5xl md:text-8xl font-serif font-bold text-center">{{title}}</h1>
-      {{#if custom_excerpt}}
-          <p class="mx-auto text-xl md:text-3xl mt-6 max-w-[960px] text-center">{{custom_excerpt}}</p>
-      {{/if}}
+  <article class="{{post_class}}">
+    <header class="pt-40 bg-black pb-24 text-white">
+      <div class="container">
+        <h1
+          class="text-5xl md:text-8xl font-serif font-bold text-center"
+        >{{title}}</h1>
+        {{#if custom_excerpt}}
+          <p
+            class="mx-auto text-xl md:text-3xl mt-6 max-w-[960px] text-center"
+          >{{custom_excerpt}}</p>
+        {{/if}}
 
-      <div class="grid grid-cols-5 gap-8 pt-10">
-        <img src="https://res-1.cloudinary.com/chat-cart/image/upload/q_auto/v1/ghost-blog-images/V5_Photo-1.jpg" alt="house" class="col-span-5 md:col-span-2 object-cover h-[300px] md:h-[500px] w-full rounded-md relative hidden md:block after:z-10 after:absolute after:w-20 after:h-20 after:bg-black after:top-0 after:left-0" >
-        <img src="https://res-5.cloudinary.com/chat-cart/image/upload/q_auto/v1/ghost-blog-images/Garden-Estate-01.jpg" alt="house" class="col-span-5 md:col-span-3 object-cover h-[300px] md:h-[500px] w-full rounded-md" >
-      </div>
-      <div class="pt-12">
-        <div class="border-t border-gray-300 h-4 w-full border-l mb-8"></div>
-        <div class="flex flex-wrap justify-between">
-          <div class="w-full md:w-[20%]">
-            <h2 class="font-sans text-xl">Our Story</h2>
-          </div>
-          <div class="w-full mt-8 md:mt-0 md:w-[75%] lg:w-[720px] text-white gh-content gh-canvas">
-            {{content}}
+        <div class="grid grid-cols-5 gap-8 pt-10">
+          <img
+            src="https://res-1.cloudinary.com/chat-cart/image/upload/q_auto/v1/ghost-blog-images/V5_Photo-1.jpg"
+            alt="house"
+            class="col-span-5 md:col-span-2 object-cover h-[300px] md:h-[500px] w-full rounded-md relative hidden md:block after:z-10 after:absolute after:w-20 after:h-20 after:bg-black after:top-0 after:left-0"
+          />
+          <img
+            src="https://res-5.cloudinary.com/chat-cart/image/upload/q_auto/v1/ghost-blog-images/Garden-Estate-01.jpg"
+            alt="house"
+            class="col-span-5 md:col-span-3 object-cover h-[300px] md:h-[500px] w-full rounded-md"
+          />
+        </div>
+        <div class="pt-12">
+          <div class="border-t border-gray-300 h-4 w-full border-l mb-8"></div>
+          <div class="flex flex-wrap justify-between">
+            <div class="w-full md:w-[20%]">
+              <h2 class="font-sans text-xl">Our Story</h2>
+            </div>
+            <div
+              class="w-full mt-8 md:mt-0 md:w-[75%] lg:w-[720px] text-white gh-content gh-canvas"
+            >
+              {{content}}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </header>
-  <section class="container mb-8">
-    <div class="border-t mt-8 pt-8 flex flex-wrap justify-between">
-      <h3 class="text-4xl w-full md:w-[30%] mb-4">Industry Experience</h3>
-      <p class="w-full md:w-[50%]">
-        Our experience spans decades which allows our clients to rely on us to deliver modern and sustainable solutions. Our core team comprises of highly skilled, competent and dedicated professionals who provide design, planning and technical expertise for a wide variety of project types.
-      </p>
-    </div>
-    <div class="border-t mt-8 pt-8 flex flex-wrap justify-between">
-      <h3 class="text-4xl w-full md:w-[30%] mb-4">Client Focus</h3>
-      <p class="w-full md:w-[50%]">
-        Our Client’s goals are primary to what we do and we are built to deliver.  Our Clients include private residential owners, real estate developers, institutional organizations, business owners and builders.
-      </p>
-    </div>
-    <div class="border-t mt-8 pt-8 flex flex-wrap justify-between">
-      <h3 class="text-4xl w-full md:w-[30%] mb-4">Environmentally Responsible</h3>
-      <p class="w-full md:w-[50%]">
-        We always aim to design and build excellent, innovative and sustainable homes, buildings and communities that are aesthetically pleasing and adhere to sustainable design principles.
-      </p>
-    </div>
-  </section>
-  <section class="py-10" id="mission">
-    <div class="container grid md:grid-cols-2 gap-8">
-      <div class="bg-yellow-400 p-6 rounded-lg">
-        <h3 class="text-xl text-black mb-12 font-serif">Our Mission</h3>
-        <img src={{asset "img/mission.png"}} alt="architecture" class="inverse w-[160px] my-16">
-        <p class="text-xl text-black mb-3">
-          Our mission is to design and build excellent, innovative and sustainable homes, buildings and communities that are aesthetically pleasing and adhere to sustainable design principles.
-        </p>
-        <p class="text-xl text-black">
-          Our tradition of dedication, professionalism and outstanding customer service is a testament to that mission as we strive each day for excellence in bringing our valued clients’ ideas to life.
+    </header>
+    <section class="container mb-8">
+      <div class="border-t mt-8 pt-8 flex flex-wrap justify-between">
+        <h3 class="text-4xl w-full md:w-[30%] mb-4">Industry Experience</h3>
+        <p class="w-full md:w-[50%]">
+          Our experience spans decades which allows our clients to rely on us to
+          deliver modern and sustainable solutions. Our core team comprises of
+          highly skilled, competent and dedicated professionals who provide
+          design, planning and technical expertise for a wide variety of project
+          types.
         </p>
       </div>
-      <div class="bg-green-400 p-6 rounded-lg">
-        <h3 class="text-xl text-black mb-12 font-serif">Our Vision</h3>
-        <img src={{asset "img/target.png"}} alt="architecture" class="inverse h-[160px] my-16">
-        <p class="text-xl text-black mb-3">
-          To be regarded as a leader in design innovation integrating the use and application of advance structure in designing building with energy efficient architecture and interior design.
-        </p>
-        <p class="text-xl text-black">
-          To be viewed as a respected architectural firm, providing high quality design and services to our clients with honesty and integrity.
+      <div class="border-t mt-8 pt-8 flex flex-wrap justify-between">
+        <h3 class="text-4xl w-full md:w-[30%] mb-4">Client Focus</h3>
+        <p class="w-full md:w-[50%]">
+          Our Client’s goals are primary to what we do and we are built to
+          deliver. Our Clients include private residential owners, real estate
+          developers, institutional organizations, business owners and builders.
         </p>
       </div>
-    </div>
-  </section>
-  <section class="container mb-10">
-    <div class="w-full relative">
-      <img 
-        class="w-full h-auto rounded-lg" 
-        src="https://res.cloudinary.com/chat-cart/image/upload/v1658970948/ghost-blog-images/V5_Photo-1_o.jpg" 
-        alt="residential house architecture"
+      <div class="border-t mt-8 pt-8 flex flex-wrap justify-between">
+        <h3 class="text-4xl w-full md:w-[30%] mb-4">Environmentally Responsible</h3>
+        <p class="w-full md:w-[50%]">
+          We always aim to design and build excellent, innovative and
+          sustainable homes, buildings and communities that are aesthetically
+          pleasing and adhere to sustainable design principles.
+        </p>
+      </div>
+    </section>
+    <section class="py-10" id="mission">
+      <div class="container grid md:grid-cols-2 gap-8">
+        <div class="bg-yellow-400 p-6 rounded-lg">
+          <h3 class="text-xl text-black mb-12 font-serif">Our Mission</h3>
+          <img
+            src={{asset "img/mission.png"}}
+            alt="architecture"
+            class="inverse w-16 md:w-[160px] my-16"
+          />
+          <p class="text-xl text-black mb-3">
+            Our mission is to design and build excellent, innovative and
+            sustainable homes, buildings and communities that are aesthetically
+            pleasing and adhere to sustainable design principles.
+          </p>
+          <p class="text-xl text-black">
+            Our tradition of dedication, professionalism and outstanding
+            customer service is a testament to that mission as we strive each
+            day for excellence in bringing our valued clients’ ideas to life.
+          </p>
+        </div>
+        <div class="bg-green-400 p-6 rounded-lg">
+          <h3 class="text-xl text-black mb-12 font-serif">Our Vision</h3>
+          <img
+            src={{asset "img/target.png"}}
+            alt="architecture"
+            class="inverse h-16 md:h-[160px] my-16"
+          />
+          <p class="text-xl text-black mb-3">
+            To be regarded as a leader in design innovation integrating the use
+            and application of advance structure in designing building with
+            energy efficient architecture and interior design.
+          </p>
+          <p class="text-xl text-black">
+            To be viewed as a respected architectural firm, providing high
+            quality design and services to our clients with honesty and
+            integrity.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="w-full">
+      <div
+        class="w-full bg-cover bg-[url(https://res.cloudinary.com/chat-cart/image/upload/v1658970948/ghost-blog-images/V5_Photo-1_o.jpg)]"
       >
-      <div class="absolute top-0 bottom-0 left-0 right-0 bg-black/30 rounded-lg flex items-center justify-center">
-        <div class="items-center">
-          <h2 class="font-sans font-bold max-w-[720px] text-6xl text-center mx-auto text-white">Have a project in mind? Book a consultation</h2>
-          <a href="/contact-us" class="flex w-full justify-center mt-4">
-            <button class="py-4 px-8 bg-white rounded-full hover:border-2 border-blue-500">Book Consultation</button>
-          </a>
+        <div
+          class="bg-black/30 rounded-lg flex items-center justify-center py-16"
+        >
+          <div class="items-center">
+            <h2
+              class="font-sans font-bold max-w-[720px] text-3xl md:text-6xl text-center mx-auto text-white"
+            >Have a project in mind? Book a consultation</h2>
+            <a href="/contact-us" class="flex w-full justify-center mt-4">
+              <button
+                class="py-4 px-8 bg-white rounded-full hover:border-2 border-blue-500"
+              >Book Consultation</button>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-</article>
-{{> "home/book-consultation"}}
-<hr class="w-full border-t border-white/10 bg-black" />
+  </article>
 {{/page}}

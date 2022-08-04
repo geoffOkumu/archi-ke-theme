@@ -74,7 +74,7 @@
 {{#is "home"}}
 <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.7.0/keen-slider.min.js"></script>
 <script>
-    var slider = new KeenSlider("#hero-slider", {
+    var heroSlider = new KeenSlider("#hero-slider", {
             loop: true,
             slides: {
                 perView: 1,
@@ -113,32 +113,57 @@
           },
         ])
 
-    var videoSlider = new KeenSlider("#video-slider", {
-        loop: true,
-        detailsChanged: (s) => {
-          const slides = s.track.details.slides
-          s.slides.forEach((element, idx) => {
-            scaleElement(element.querySelector("div"), slides[idx].portion)
-          })
+  var slider = new KeenSlider("#video-slider")
+  var thumbnails = new KeenSlider(
+    "#video-slider-thumbnails",
+    {
+      initial: 0,
+      slides: {
+        perView: 2.3,
+        spacing: 8,
+      },
+      breakpoints: {
+        "(min-width: 400px)": {
+          slides: { perView: 3.4, spacing: 8 },
         },
-      }, [
-        (slider) =>{
-            slider.on("created", () => {
-                var vArrowLeft = document.getElementById('video-slider-arrow-left')
-                vArrowLeft.addEventListener("click", () => slider.prev())
+        "(min-width: 1000px)": {
+          slides: { perView: 4.4, spacing: 16 },
+        },
+      },
+    },
+    [ThumbnailPlugin(this.slider)]
+  )
 
-                var vArrowRight = document.getElementById('video-slider-arrow-right')
-                vArrowRight.addEventListener("click", () => slider.next())
+  function ThumbnailPlugin(main) {
+        return (slider) => {
+          function removeActive() {
+            slider.slides.forEach((slide) => {
+              slide.classList.remove("active")
             })
-        }
-      ])
+          }
+          function addActive(idx) {
+            slider.slides[idx].classList.add("active")
+          }
 
-      function scaleElement(element, portion) {
-        var scale_size = 0.7
-        var scale = 1 - (scale_size - scale_size * portion)
-        var style = `scale(${scale})`
-        element.style.transform = style
-        element.style["-webkit-transform"] = style
+          function addClickEvents() {
+            slider.slides.forEach((slide, idx) => {
+              slide.addEventListener("click", () => {
+                main.moveToIdx(idx)
+              })
+            })
+          }
+
+          slider.on("created", () => {
+            addActive(slider.track.details.rel)
+            addClickEvents()
+            main.on("animationStarted", (main) => {
+              removeActive()
+              const next = main.animator.targetIdx || 0
+              addActive(main.track.absToRel(next))
+              slider.moveToIdx(next)
+            })
+          })
+        }
       }
 
     
