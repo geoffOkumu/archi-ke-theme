@@ -1,95 +1,88 @@
 <section class="py-16 bg-black text-white">
-	<div class="container">
-		<h2
-			class="flex items-center text-xl mb-4 uppercase relative font-semibold before:content-[' '] before:inline-block before:w-1 before:bg-white before:h-10 before:rotate-12 before:mr-4"
-		>
-			Our Services
-		</h2>
-		<p class="text-2xl text-white/80 font-sans">
-			We are a full-service boutique architecture firm.
-		</p>
-		<div class="grid grid-cols-4 gap-8 mt-16">
-			<div
-				class="col-span-4 sm:col-span-2 lg:col-span-1 service-item mb-20 md:mb-0"
-			>
-				<img
-					src={{asset "/img/ad.png"}}
-					alt="Architectural Design"
-					class="h-16 invert mb-4"
-				/>
-				<h3 class="text-xl lg:text-2xl font-sans mb-4 mt-2">
-					Architectural Design
-				</h3>
-				<p class="text-lg text-white/80">Lorem ipsum dolor sit amet, consectetur
-					adipiscing elit netus praesent eu orci, volutpat.</p>
-				<a
-					href="#"
-					class="block mt-6 underline font-sans capitalize tracking-wider"
-				>
-					View Service
-				</a>
-			</div>
-			<div
-				class="col-span-4 sm:col-span-2 lg:col-span-1 service-item mb-20 md:mb-0"
-			>
-				<img
-					src={{asset "/img/id.png"}}
-					alt="Architectural Design"
-					class="h-16 invert mb-4"
-				/>
-				<h3 class="text-xl lg:text-2xl font-sans mb-4 mt-2">
-					Interior Design
-				</h3>
-				<p class="text-lg text-white/80">Lorem ipsum dolor sit amet, consectetur
-					adipiscing elit netus praesent eu orci, volutpat.</p>
-				<a
-					href="#"
-					class="block mt-6 underline font-sans capitalize tracking-wider"
-				>
-					View Service
-				</a>
-			</div>
-			<div
-				class="col-span-4 sm:col-span-2 lg:col-span-1 service-item mb-20 md:mb-0"
-			>
-				<img
-					src={{asset "/img/pm.png"}}
-					alt="Architectural Design"
-					class="h-16 invert mb-4"
-				/>
-				<h3 class="text-xl lg:text-2xl font-sans mb-4 mt-2">
-					Project Management
-				</h3>
-				<p class="text-lg text-white/80">Lorem ipsum dolor sit amet, consectetur
-					adipiscing elit netus praesent eu orci, volutpat.</p>
-				<a
-					href="#"
-					class="block mt-6 underline font-sans capitalize tracking-wider"
-				>
-					View Service
-				</a>
-			</div>
-			<div
-				class="col-span-4 sm:col-span-2 lg:col-span-1 service-item mb-20 md:mb-0"
-			>
-				<img
-					src={{asset "/img/consultation.png"}}
-					alt="Architectural Design"
-					class="h-16 invert mb-4"
-				/>
-				<h3 class="text-xl lg:text-2xl font-sans mb-4 mt-2">
-					Consultation
-				</h3>
-				<p class="text-lg text-white/80">Lorem ipsum dolor sit amet, consectetur
-					adipiscing elit netus praesent eu orci, volutpat.</p>
-				<a
-					href="#"
-					class="block mt-6 underline font-sans capitalize tracking-wider"
-				>
-					View Service
-				</a>
-			</div>
-		</div>
+  <div class="container">
+    <h2
+      class="flex items-center text-xl mb-4 uppercase relative font-semibold before:content-[' '] before:inline-block before:w-1 before:bg-white before:h-10 before:rotate-12 before:mr-4"
+    >
+      Our Services
+    </h2>
+    <p class="text-2xl text-white/80 font-sans">
+      We are a full-service boutique architecture firm.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mt-16">
+      <div class="service-item bg-white p-4 md:p-8 rounded-lg">
+        <img
+          src={{asset "/img/ad.png"}}
+          alt="Architectural Design"
+          class="h-16 mb-4 p-4 bg-gray-300 rounded-lg"
+        />
+        <h3 class="text-xl lg:text-2xl font-sans mb-4 mt-2 text-black">
+          Architectural Design
+        </h3>
+        <p class="text-lg text-black/80">Our buildings gestate in the belief
+          that architecture should provide an armature for community life.</p>
+        <a
+          href="/services/architectural-design"
+          class="block mt-6 underline font-sans capitalize tracking-wider text-black"
+        >
+          View Service
+        </a>
+      </div>
+      <div class="service-item bg-white p-4 md:p-8 rounded-lg">
+        <img
+          src={{asset "/img/id.png"}}
+          alt="Architectural Design"
+          class="h-16 mb-4 p-4 bg-gray-300 rounded-lg"
+        />
+        <h3 class="text-xl lg:text-2xl font-sans mb-4 mt-2 text-black">
+          Interior Design
+        </h3>
+        <p class="text-lg text-black/80">We create imaginative spaces that
+          capture attention and provide comfort and delight.</p>
+        <a
+          href="/services/interior-design"
+          class="block mt-6 underline font-sans capitalize tracking-wider text-black"
+        >
+          View Service
+        </a>
+      </div>
+      <div class="service-item bg-white p-4 md:p-8 rounded-lg">
+        <img
+          src={{asset "/img/pm.png"}}
+          alt="Architectural Design"
+          class="h-16 mb-4 p-4 bg-gray-300 rounded-lg"
+        />
+        <h3 class="text-xl lg:text-2xl font-sans mb-4 mt-2 text-black">
+          Project Management
+        </h3>
+        <p class="text-lg text-black/80">Project programming, scheduling and
+          activity breakdown, procurement and construction strategy, operation
+          and maintenance.</p>
+        <a
+          href="/services/project-management"
+          class="block mt-6 underline font-sans capitalize tracking-wider text-black"
+        >
+          View Service
+        </a>
+      </div>
+      <div class="service-item bg-white p-4 md:p-8 rounded-lg">
+        <img
+          src={{asset "/img/consultation.png"}}
+          alt="Architectural Design"
+          class="h-16 mb-4 p-4 bg-gray-300 rounded-lg"
+        />
+        <h3 class="text-xl lg:text-2xl font-sans mb-4 mt-2 text-black">
+          Consultation
+        </h3>
+        <p class="text-lg text-black/80">Let's find out if we share the same
+          vision during an introductory meeting. We'd love to hear your ideas!</p>
+        <a
+          href="/services/consultation"
+          class="block mt-6 underline font-sans capitalize tracking-wider text-black"
+        >
+          View Service
+        </a>
+      </div>
+    </div>
 
-	</div>
+  </div>
 </section>

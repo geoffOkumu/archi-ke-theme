@@ -2,7 +2,7 @@
     "name": "archi-ke-theme",
     "description": "A custom theme for ghost",
     "demo": "https://starter.ghost.io",
-    "version": "1.2.0",
+    "version": "1.0.0",
     "engines": {
         "ghost": ">=4.0.0"
     },
@@ -44,6 +44,7 @@
     "bugs": "https://github.com/TryGhost/Starter/issues",
     "contributors": "https://github.com/TryGhost/Starter/graphs/contributors",
     "devDependencies": {
+        "@tailwindcss/forms": "^0.5.2",
         "autoprefixer": "10.4.7",
         "beeper": "2.1.0",
         "cssnano": "5.1.12",

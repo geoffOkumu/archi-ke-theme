@@ -16,7 +16,7 @@
             {{/if}}
         </a>
 
-        <ul class="list-none m-0 p-0 hidden sm:flex sm:items-center">
+        <ul class="list-none m-0 p-0 hidden sm:flex sm:items-center" id="nav-links">
             <li
                 class="text-white text-sm mx-4 inline-block uppercase relative group"
             >
@@ -27,35 +27,57 @@
                 </a>
 
                 <div
-                    class="h-0 overflow-y-hidden group-hover:h-auto absolute bg-white w-[300px] z-[1000] rounded text-black shadow-md"
+                    class="sm:h-0 sm:overflow-y-hidden sm:group-hover:h-auto sm:absolute bg-white w-full sm:w-[300px] z-[1000] rounded text-black sm:shadow-md"
                 >
 
                     <a
                         href="/about-us"
-                        class="block py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                        class="flex items-center py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
                     >
-                        About Us
+                        <img
+                            class="p-2 rounded bg-gray-100 h-12 mr-3"
+                            src={{asset "/img/folder.png"}}
+                            alt="Residential Architectural Design"
+                        />
+                        <span>About Us</span>
                     </a>
 
                     <a
                         href="/team"
-                        class="block py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                        class="flex items-center py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
                     >
-                        Meet the team
+                        <img
+                            class="p-2 rounded bg-gray-100 h-12 mr-3"
+                            src={{asset "/img/team.png"}}
+                            alt="Our team"
+                        />
+                        <span>
+                            Meet the team
+                        </span>
                     </a>
 
                     <a
                         href="/about-us#mission"
-                        class="block py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                        class="flex items-center py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
                     >
-                        Our Mission
+                        <img
+                            class="p-2 rounded bg-gray-100 h-12 mr-3"
+                            src={{asset "/img/mission.png"}}
+                            alt="Our Mission"
+                        />
+                        <span>Our Mission</span>
                     </a>
 
                     <a
                         href="/vacancies"
-                        class="block py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
+                        class="flex items-center py-2 px-2 text-sm hover:bg-gray-200 rounded m-2"
                     >
-                        We are hiring
+                        <img
+                            class="p-2 rounded bg-gray-100 h-12 mr-3"
+                            src={{asset "/img/job-search.png"}}
+                            alt="Job Vacancy"
+                        />
+                        <span>We are hiring</span>
                     </a>
 
                 </div>
@@ -70,7 +92,7 @@
                 </a>
 
                 <div
-                    class="h-0 overflow-y-hidden group-hover:h-auto absolute bg-white w-[300px] z-[1000] rounded text-black shadow-md"
+                    class="sm:h-0 sm:overflow-y-hidden sm:group-hover:h-auto sm:absolute bg-white w-full sm:w-[300px] z-[1000] rounded text-black sm:shadow-md"
                 >
 
                     <a
@@ -145,7 +167,7 @@
                 </a>
 
                 <div
-                    class="h-0 overflow-y-hidden group-hover:h-auto absolute bg-white w-[300px] z-[1000] rounded text-black shadow-md"
+                    class="sm:h-0 sm:overflow-y-hidden sm:group-hover:h-auto sm:absolute bg-white w-full sm:w-[300px] z-[1000] rounded text-black sm:shadow-md"
                 >
 
                     <a
@@ -204,13 +226,15 @@
 
             </li>
         </ul>
-        <button
-            class="hidden md:flex items-center py-1 px-3 border border-white font-sans font-medium uppercase text-white text-sm rounded-sm"
-        >
-            <Phone class="mr-2" />
-            <span>Contact Us</span>
-        </button>
-        <button class="bg-transparent p-0 m-0 border-none sm:hidden ">
+        <a href="/contact-us">
+            <button
+                class="hidden md:flex items-center py-1 px-3 border border-white font-sans font-medium uppercase text-white text-sm rounded-sm"
+            >
+                <Phone class="mr-2" />
+                <span>Contact Us</span>
+            </button>
+        </a>
+        <button class="bg-transparent p-0 m-0 border-none sm:hidden" id="mobile-menu-btn">
             <div class="gh-burger-box text-white">
                 <div class="gh-burger-inner"></div>
             </div>

@@ -1,0 +1,64 @@
+<section class="w-full relative">
+  <img
+    src="https://res.cloudinary.com/chat-cart/image/upload/v1659932460/archi-ke/milad-fakurian-PpgY7sjpf_0-unsplash_udtcox.jpg"
+    alt="architectural design"
+    class="w-full md:w-[40%] h-full object-cover md:absolute md:top-0 md:bottom-0 md:left-0"
+  />
+
+  <div class="container md:ml-[40%] md:w-[60%] py-8">
+    <h3 class="font-bold text-xl font-sans block mb-4">Send a Message</h3>
+    <form
+      class="grid grid-cols-1 md:grid-cols-2 gap-4"
+      action="/"
+      method="POST"
+    >
+      <label class="block">
+        <span class="text-gray-700">Full name</span>
+        <input
+          type="text"
+          required
+          class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+          placeholder=""
+        />
+      </label>
+      <label class="block">
+        <span class="text-gray-700">Email address</span>
+        <input
+          type="email"
+          required
+          class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+          placeholder="john@example.com"
+        />
+      </label>
+      <label class="block">
+        <span class="text-gray-700">Subject</span>
+        <input
+          type="text"
+          required
+          class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+          placeholder=""
+        />
+      </label>
+      <label class="block">
+        <span class="text-gray-700">Phone</span>
+        <input
+          type="text"
+          class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+          placeholder=""
+        />
+      </label>
+      <label class="block md:col-span-2">
+        <span class="text-gray-700">Message</span>
+        <textarea
+          class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+          rows="3"
+        ></textarea>
+        <button
+          type="submit"
+          class="mt-4 block w-full rounded-md bg-black text-white uppercase border-transparent py-2 hover:ring"
+        >Send</button>
+      </label>
+    </form>
+
+  </div>
+</section>

@@ -1,16 +1,16 @@
 routes:
   /: home
   /services/architectural-design/:
-    template: page
+    template: custom-service-page
     data: page.architectural-design
   /services/interior-design/:
-    template: page
+    template: custom-service-page
     data: page.interior-design
   /services/project-management/:
-    template: page
+    template: custom-service-page
     data: page.project-management
   /services/consultation/:
-    template: page
+    template: custom-service-page
     data: page.consultation
 
 taxonomies:
@@ -22,8 +22,6 @@ collections:
     permalink: /portfolio/{slug}/
     template: projects
     filter: tag:project
-    data: tag.project
   /blog/:
     permalink: /blog/{slug}/
     template: blog
-  

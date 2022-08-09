@@ -6,17 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossOrigin
-    />
-    <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Serif:wght@400;500&display=swap"
-    rel="stylesheet"
-    />
-    {{#is "home"}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    {{#is "home, post"}}
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/keen-slider@6.7.0/keen-slider.min.css"
@@ -61,8 +54,9 @@
 <script>
     $(document).ready(function () {
         // Mobile Menu Trigger
-        $('.gh-burger').click(function () {
-            $('body').toggleClass('gh-head-open');
+        $('#mobile-menu-btn').click(function () {
+            $('#archi-hamburger').toggleClass('ac-hamburger--active');
+            $('#nav-links').toggleClass('nav--active');
         });
     });
     
@@ -80,7 +74,7 @@
 {{#is "home"}}
 <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.7.0/keen-slider.min.js"></script>
 <script>
-    var slider = new KeenSlider("#hero-slider", {
+    var heroSlider = new KeenSlider("#hero-slider", {
             loop: true,
             slides: {
                 perView: 1,
@@ -118,25 +112,181 @@
             slider.on("updated", nextTimeout)
           },
         ])
+
+  var slider = new KeenSlider("#video-slider")
+  var thumbnails = new KeenSlider(
+    "#video-slider-thumbnails",
+    {
+      initial: 0,
+      slides: {
+        perView: 2.3,
+        spacing: 8,
+      },
+      breakpoints: {
+        "(min-width: 400px)": {
+          slides: { perView: 3.4, spacing: 8 },
+        },
+        "(min-width: 1000px)": {
+          slides: { perView: 4.4, spacing: 16 },
+        },
+      },
+    },
+    [ThumbnailPlugin(this.slider)]
+  )
+
+  function ThumbnailPlugin(main) {
+        return (slider) => {
+          function removeActive() {
+            slider.slides.forEach((slide) => {
+              slide.classList.remove("active")
+            })
+          }
+          function addActive(idx) {
+            slider.slides[idx].classList.add("active")
+          }
+
+          function addClickEvents() {
+            slider.slides.forEach((slide, idx) => {
+              slide.addEventListener("click", () => {
+                main.moveToIdx(idx)
+              })
+            })
+          }
+
+          slider.on("created", () => {
+            addActive(slider.track.details.rel)
+            addClickEvents()
+            main.on("animationStarted", (main) => {
+              removeActive()
+              const next = main.animator.targetIdx || 0
+              addActive(main.track.absToRel(next))
+              slider.moveToIdx(next)
+            })
+          })
+        }
+      }
+
+    
 </script>
 
 {{/is}}
 
 {{#is "post, page"}}
 <script src="{{asset "built/jquery.fitvids.js"}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/keen-slider@6.7.0/keen-slider.min.js"></script>
 <script>
-    var images = document.querySelectorAll('.kg-gallery-image img');
-    images.forEach(function (image) {
-        var container = image.closest('.kg-gallery-image');
-        var width = image.attributes.width.value;
-        var height = image.attributes.height.value;
-        var ratio = width / height;
-        container.style.flex = ratio + ' 1 0%';
+  function navigation(slider) {
+    let wrapper, dots, arrowLeft, arrowRight;
+
+    function markup(remove) {
+      wrapperMarkup(remove);
+      dotMarkup(remove);
+      arrowMarkup(remove);
+    }
+
+    function removeElement(elment) {
+      elment.parentNode.removeChild(elment);
+    }
+    function createDiv(className) {
+      var div = document.createElement("div");
+      var classNames = className.split(" ");
+      classNames.forEach((name) => div.classList.add(name));
+      return div;
+    }
+
+    function arrowMarkup(remove) {
+      if (remove) {
+        removeElement(arrowLeft);
+        removeElement(arrowRight);
+        return;
+      }
+      arrowLeft = createDiv("arrow arrow--left");
+      arrowLeft.addEventListener("click", () => slider.prev());
+      arrowRight = createDiv("arrow arrow--right");
+      arrowRight.addEventListener("click", () => slider.next());
+
+      wrapper.appendChild(arrowLeft);
+      wrapper.appendChild(arrowRight);
+    }
+
+    function wrapperMarkup(remove) {
+      if (remove) {
+        var parent = wrapper.parentNode;
+        while (wrapper.firstChild)
+          parent.insertBefore(wrapper.firstChild, wrapper);
+        removeElement(wrapper);
+        return;
+      }
+      wrapper = createDiv("navigation-wrapper");
+      slider.container.parentNode.appendChild(wrapper);
+      wrapper.appendChild(slider.container);
+    }
+
+    function dotMarkup(remove) {
+      if (remove) {
+        removeElement(dots);
+        return;
+      }
+      dots = createDiv("dots");
+      slider.track.details.slides.forEach((_e, idx) => {
+        var dot = createDiv("dot");
+        dot.addEventListener("click", () => slider.moveToIdx(idx));
+        dots.appendChild(dot);
+      });
+      wrapper.appendChild(dots);
+    }
+
+    function updateClasses() {
+      var slide = slider.track.details.rel;
+      slide === 0
+        ? arrowLeft.classList.add("arrow--disabled")
+        : arrowLeft.classList.remove("arrow--disabled");
+      slide === slider.track.details.slides.length - 1
+        ? arrowRight.classList.add("arrow--disabled")
+        : arrowRight.classList.remove("arrow--disabled");
+      Array.from(dots.children).forEach(function (dot, idx) {
+        idx === slide
+          ? dot.classList.add("dot--active")
+          : dot.classList.remove("dot--active");
+      });
+    }
+
+    slider.on("created", () => {
+      markup();
+      updateClasses();
     });
-    $(document).ready(function () {
-        var $postContent = $(".gh-content");
-        $postContent.fitVids();
+    slider.on("optionsChanged", () => {
+      console.log(2);
+      markup(true);
+      markup();
+      updateClasses();
     });
+    slider.on("slideChanged", () => {
+      updateClasses();
+    });
+    slider.on("destroyed", () => {
+      markup(true);
+    });
+  }
+
+  $(document).ready(function () {
+    var $postContent = $(".gh-content");
+    $postContent.fitVids();
+
+    $("#project-slider").addClass("keen-slider");
+    var images = document.querySelectorAll(".kg-gallery-image img");
+
+    images.forEach(function (image, index) {
+      image.classList.add("keen-slider__slide");
+      image.classList.add("project-slider__item");
+      image.classList.add("number-slide" + index);
+
+      $("#project-slider").append(image);
+    });
+
+    var projectSlider = new KeenSlider("#project-slider", {}, [navigation]);
+  });
+
 </script>
 {{/is}}
 

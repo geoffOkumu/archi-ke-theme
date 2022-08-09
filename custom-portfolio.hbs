@@ -1,0 +1,85 @@
+{{!< default}}
+
+{{#post}}
+
+<article class="{{post_class}}">
+
+    <header class="bg-black pt-[120px]">
+        <div class="post-title-card">
+            <div class="container py-8">
+                <div class="w-full md:max-w-[75%]">
+                    <span
+                        class="flex items-center text-sm mb-4 uppercase relative before:content-[' '] before:inline-block before:w-[1px] before:bg-white text-white/80 before:h-6 before:rotate-12 before:mr-4"
+                    >
+                        Projects
+                    </span>
+                    <h1 class="text-2xl md:text-6xl text-white font-serif font-bold">{{title}}</h1>
+                    <div class="flex flex-wrap mb-4 mt-6">
+                        {{#foreach tags}}
+                            <a
+                                href="{{url}}"
+                                class="text-[8px] sm:text-[12px] py-1 px-2 mr-1 mb-2 sm:mb-2 inline-block bg-white/20 rounded-sm font-medium tracking-wider uppercase text-white/80"
+                            >
+                                {{name}}
+                            </a>
+                        {{/foreach}}
+                        <time class="text-white/80 text-base ml-4" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+                        <span class="text-white/80 mx-4">{{reading_time}}</span> 
+                    </div>
+                    <a href="{{primary_author.url}}" class="flex items-center">
+                        <div class="h-8 w-8 mr-2 rounded-full border border-white flex items-center justify-center">
+                            {{> "icons/user" className="h-4 text-white"}}
+                        </div>
+                        <span class="text-white">{{primary_author.name}}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div id="project-slider"></div>
+        </div>
+    </header>
+
+    <div class="gh-content gh-canvas mt-8">
+        {{content}}
+    </div>
+
+    <footer class="container border-t-4 border-black mt-8 py-8">
+        <h3 class="text-2xl uppercase mb-8">Posted by</h3>
+        <div class="grid gap-4 grid-cols-1 md:grid-cols-2">
+            {{#foreach authors}}
+                <a href="{{url}}" class="flex items-center bg-gray-200 rounded p-4 hover:ring-2 ring-black ring-offset-2">
+                    <div class="h-10 w-10 mr-2 rounded-full border border-black flex items-center justify-center">
+                            {{> "icons/user" className="h-5"}}
+                    </div>
+                    <h4 class="text-lg">{{name}}</h4>
+                </a>
+            {{/foreach}}
+        </div>
+
+        {{!--
+        <section class="gh-post-comments">
+            If you want to embed comments, this is a good place to do it!
+        </section>
+        --}}
+
+    </footer>
+
+</article>
+
+<aside class="py-8">
+    <div class="container">
+        <h3 class="text-2xl uppercase">More Projects</h3>
+        <div class="grid gap-4 md:grid-cols-2 mt-4">
+            {{#next_post}}
+                {{> "project-card" showTags="true"}}
+            {{/next_post}}
+        
+            {{#prev_post}}
+                {{> "project-card" showTags="true"}}
+            {{/prev_post}}
+        </div>
+    </div>
+</aside>
+
+{{/post}}

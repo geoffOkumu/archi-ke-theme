@@ -1,11 +1,11 @@
 {{!< default}}
 
-<div class="bg-gradient-to-r from-purple-500 to-pink-500 pb-10 pt-[150px]">
+<div class="bg-gradient-to-r from-purple-800 to-pink-500 pb-10 pt-[150px]">
   <div class="container text-white">
 
-    <header class="text-start bg-black p-4 max-w-[720px]">
+    <header class="text-star max-w-[720px]">
 
-      <h1 class="font-serif text-5xl">Our Work</h1>
+      <h1 class="font-sans text-5xl md:text-6xl font-bold">Our Work</h1>
 
       <p class="text-lg mt-4">
         Exprole architecture and Interior design projects that we have been part
@@ -15,12 +15,15 @@
     </header>
   </div>
 </div>
-<div class="container my-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+<div class="container my-5 border-t">
+  <div class="w-full grid gap-2 sm:gap-6 grid-cols-2 md:grid-cols-3">
     {{#foreach posts}}
 
-        {{> "card"}} {{!-- partials/card.hbs --}}
+        {{> "project-card"}} {{!-- partials/card.hbs --}}
 
-    {{/foreach}}
+      {{/foreach}}
+  </div>
+      
 </div>
 
 {{> "home/book-consultation"}}
